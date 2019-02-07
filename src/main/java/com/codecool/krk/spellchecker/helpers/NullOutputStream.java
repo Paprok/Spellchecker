@@ -1,4 +1,4 @@
-package com.codecool.krk.spellchecker;
+package com.codecool.krk.spellchecker.helpers;
 
 import java.io.OutputStream;
 

@@ -1,5 +1,6 @@
-package com.codecool.krk.spellchecker;
+package com.codecool.krk.spellchecker.hashTable;
 
+import com.codecool.krk.spellchecker.hashTable.hashers.StringHasher;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**

@@ -1,5 +1,11 @@
 package com.codecool.krk.spellchecker;
 
+import com.codecool.krk.spellchecker.hashTable.hashers.BetterStringHasher;
+import com.codecool.krk.spellchecker.hashTable.hashers.DegenerateStringHasher;
+import com.codecool.krk.spellchecker.hashTable.hashers.LousyStringHasher;
+import com.codecool.krk.spellchecker.hashTable.hashers.StringHasher;
+import com.codecool.krk.spellchecker.helpers.NullOutputStream;
+
 import java.io.IOException;
 import java.io.PrintStream;
 

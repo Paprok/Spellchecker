@@ -1,4 +1,6 @@
-package com.codecool.krk.spellchecker;
+package com.codecool.krk.spellchecker.hashTable;
+
+import com.codecool.krk.spellchecker.hashTable.hashers.StringHasher;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -12,13 +14,13 @@ public class WordList {
         int index = Integer.parseInt(br.readLine());
         this.hashTable = new HashTable((int)((double)index * 1.2D), hasher);
 
-        for(int var5 = 0; var5 < index; ++var5) {
+        for(int i = 0; i < index; ++i) {
             this.hashTable.add(br.readLine().trim().toUpperCase());
         }
         br.close();
     }
 
-    public boolean lookup(String var1) {
-        return this.hashTable.lookup(var1.toUpperCase());
+    public boolean lookup(String word) {
+        return this.hashTable.lookup(word.toUpperCase());
     }
 }

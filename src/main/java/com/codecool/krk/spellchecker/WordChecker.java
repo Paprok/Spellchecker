@@ -1,5 +1,6 @@
 package com.codecool.krk.spellchecker;
 
+import com.codecool.krk.spellchecker.hashTable.WordList;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;

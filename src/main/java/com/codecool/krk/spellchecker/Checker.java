@@ -1,5 +1,9 @@
 package com.codecool.krk.spellchecker;
 
+import com.codecool.krk.spellchecker.hashTable.WordList;
+import com.codecool.krk.spellchecker.hashTable.hashers.StringHasher;
+import com.codecool.krk.spellchecker.helpers.WordLineReader;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

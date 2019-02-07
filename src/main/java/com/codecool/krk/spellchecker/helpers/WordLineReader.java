@@ -1,4 +1,4 @@
-package com.codecool.krk.spellchecker;
+package com.codecool.krk.spellchecker.helpers;
 
 public class WordLineReader {
     private final String line;
