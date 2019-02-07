@@ -12,44 +12,43 @@ public class Checker {
     public Checker() {
     }
 
-    public void check(String var1, String var2, StringHasher var3, PrintStream var4) throws IOException {
-        WordList var5 = new WordList(var2, var3);
-        BufferedReader var6 = new BufferedReader(new FileReader(var1));
-        String var7 = var6.readLine();
-        WordLineReader var8 = new WordLineReader(var7);
+    public void check(String type, String fileName, StringHasher hasher, PrintStream printStream) throws IOException {
+        WordList wordList = new WordList(fileName, hasher);
+        BufferedReader br = new BufferedReader(new FileReader(type));
+        String line = br.readLine();
+        WordLineReader wordReader = new WordLineReader(line);
 
         label34:
-        for(WordChecker var9 = new WordChecker(var5); var7 != null; var8 = new WordLineReader(var7)) {
+        for(WordChecker wordChecker = new WordChecker(wordList); line != null; wordReader = new WordLineReader(line)) {
             while(true) {
-                ArrayList var11;
+                ArrayList arrayList;
                 do {
-                    String var10;
+                    String word;
                     do {
-                        if (!var8.hasNextWord()) {
-                            var7 = var6.readLine();
+                        if (!wordReader.hasNextWord()) {        // if end of line
+                            line = br.readLine();
                             continue label34;
                         }
 
-                        var10 = var8.nextWord().toUpperCase();
-                    } while(var9.wordExists(var10));
+                        word = wordReader.nextWord().toUpperCase();
+                    } while(wordChecker.wordExists(word));          // while is word
 
-                    var11 = var9.getSuggestions(var10);
-                    var4.println();
-                    var4.println(var7);
-                    var4.println("     word not found: " + var10);
-                } while(var11.size() <= 0);
+                    arrayList = wordChecker.getSuggestions(word);
+                    printStream.println();
+                    printStream.println(line);
+                    printStream.println("     word not found: " + word);        // print searched word
+                } while(arrayList.size() <= 0);
 
-                Collections.sort(var11);
-                var4.println("  perhaps you meant: ");
-                Iterator var12 = var11.iterator();
+                Collections.sort(arrayList);
+                printStream.println("  perhaps you meant: ");                   // print suggestions
+                Iterator iterator = arrayList.iterator();
 
-                while(var12.hasNext()) {
-                    String var13 = (String)var12.next();
-                    var4.println("          " + var13 + " ");
+                while(iterator.hasNext()) {
+                    String suggestion = (String)iterator.next();
+                    printStream.println("          " + suggestion + " ");
                 }
             }
         }
-
-        var6.close();
+        br.close();
     }
 }
